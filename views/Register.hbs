@@ -8,24 +8,28 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
+        {{> Navbar }}
     <div class="container">
       <div class="text">Registration</div>
+      {{#if msg }}
+      <p class="{{msg_type}}">{{msg}}</p>
+      {{/if}}
       <form action="/auth/register" method="post">
         <div class="data">
           <label for="name">Full Name</label>
-          <input type="text" name="name" id="name" />
+          <input type="text" name="name" id="name" autocomplete="none" required="required"/>
         </div>
         <div class="data">
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" />
+          <input type="email" name="email" id="email" required="required"/>
         </div>
         <div class="data">
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password" id="password" required="required" />
         </div>
         <div class="data">
           <label for="confirm_password">Confirm Password</label>
-          <input type="password" name="confirm_password" id="password" />
+          <input type="password" name="confirm_password" id="password" required="required"/>
         </div>
 
         <div class="btn">
