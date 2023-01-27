@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const userContoller= require('../controllers/users');
+const dbo = require('../db')
+
 
 router.get(['/',"/login"],(req,res)=>{
     res.render("login")
@@ -16,9 +18,13 @@ router.get('/profile',userContoller.isLoggedIn,(req,res)=>{
         res.redirect("/login")
     }
 })
-router.get('/home',userContoller.isLoggedIn,(req,res)=>{
+router.get('/home',userContoller.isLoggedIn,async(req,res)=>{
     if(req.user){
-        res.render("Home",{user:req.user})
+        let database =await dbo.getDataBase();
+        const collection = database.collection('datas');
+        const cursor = collection.find({})
+        let datas =await cursor.toArray();
+        res.render("Home",{user:req.user,datas});
     }
     else{
         res.redirect("/login")

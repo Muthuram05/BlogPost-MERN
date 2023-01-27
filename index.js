@@ -16,6 +16,7 @@ hbs.registerPartials(partial);
 
 app.use('/',require('./routs/pages'))
 app.use('/auth',require('./routs/auth'))
+app.use('/post',require('./routs/post'))
 const port = process.env.port || 8000
 
 app.listen(port,()=>{
