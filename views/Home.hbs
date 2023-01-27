@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Node.js Login System With MySQL</title>
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
-  <body>
-    {{> Navbar  }}
-    <div class="container-fluid">
-  <form method="post" action="/post/new">
-    <input type="text" name="name" value="{{user.name}}" style="display: none;">
-    <input type="email" name="email" value="{{user.email}}" style="display: none;">
-    <input type="text" name="title" >
-    <textarea name="content"></textarea>
-    <input type="submit" value="Post">
-  </form>
-    
-      {{#each datas }}
-      <div class="data">
-        <h2>{{this.name}}</h2>
-        <h3>{{this.email}}</h3>
-      </div>
 
-      {{/each}}
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Node.js Login System With MySQL</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  {{> Navbar }}
+  {{message}}
+  <div class="container-fluid">
+    <form method="post" action="/post/new">
+      <input type="text" name="name" value="{{user.name}}" style="display: none;">
+      <input type="email" name="email" value="{{user.email}}" style="display: none;">
+      <input type="text" name="title">
+      <textarea name="content"></textarea>
+      <input type="submit" value="Post">
+    </form>
+  </div>
+  <br>
+  {{#each datas }}
+  <div class="container-fluid">
+    <div class="data">
+      <h2>{{this.name}}</h2>
+      <h3>{{this.email}}</h3>
+      {{#if this.image }}
+      <img src="/userpost/{{this.image}}">
+      {{/if }}
     </div>
-  </body>
+  </div>
+  <br>
+  {{/each}}
+</body>
+
 </html>

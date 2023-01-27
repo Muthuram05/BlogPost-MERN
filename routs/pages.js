@@ -10,9 +10,13 @@ router.get(['/',"/login"],(req,res)=>{
 router.get('/register',(req,res)=>{
     res.render("Register")
 })
-router.get('/profile',userContoller.isLoggedIn,(req,res)=>{
+router.get('/profile',userContoller.isLoggedIn,async(req,res)=>{
     if(req.user){
-        res.render("profile",{user:req.user})
+        let database =await dbo.getDataBase();
+        const collection = database.collection('datas');
+        const cursor = collection.find({email:req.user.email})
+        let datas =await cursor.toArray();
+        res.render("profile",{user:req.user,datas})
     }
     else{
         res.redirect("/login")

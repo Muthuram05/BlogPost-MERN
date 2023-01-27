@@ -15,6 +15,13 @@
       <img src="/image/profile.png" />
       <h3>Name : {{user.name}}</h3>
       <h3>Email : {{user.email}}</h3>
+      {{#each datas}}
+      <h1>{{this.email}}</h1>
+      <h1>{{this.name}}</h1>
+      <h1>{{this.title}}</h1>
+      <h1>{{this.content}}</h1>
+      <img src="userpost/{{this.image}}">
+      {{/each}}
     </div>
   </body>
 </html>
