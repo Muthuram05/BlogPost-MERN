@@ -1,7 +1,3 @@
-<div class="header">
-  <h2>Scroll Down</h2>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, illum officiis odit nobis rem temporibus dolore voluptatum. Dolorum explicabo repudiandae facilis error expedita, nesciunt porro totam aspernatur excepturi, dolor necessitatibus.</p>
-</div>
 <nav id="navbar">
   <div class="logo">Muthu Ram</div>
   <div class="menu">
@@ -15,29 +11,3 @@
     {{/if }}
   </div>
 </nav>
-<script>
-  window.onscroll = function() {myFunction()};
-
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
-</script>
-<style>
-  .header {
-  background-color: #f1f1f1;
-  padding: 30px;
-  text-align: center;
-}
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-</style>

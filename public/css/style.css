@@ -9,7 +9,7 @@
 body{
   height: 100vh;
   width: 100%;
-  background:#5199E4;
+  background:#f1f1f1;
 }
 
 .container
@@ -28,8 +28,8 @@ body{
   display: block;
   background: #fff;
   width: 50%;
-  min-height:200px ;
-  max-height: 200px;
+  min-height:250px ;
+  max-height: 250px;
   overflow: hidden;
   padding: 10px;
   display: flex;
@@ -195,16 +195,73 @@ nav .menu a:hover{
 padding-left: 5px;
 }
 .user-content{
-  width: 80%;
+  height: 150px;
+  width: 90%;
   margin: auto;
-  padding-top: 5px;
-  font-size: 18px;
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: 800;
+}
+.user-content p:hover{
+  cursor: pointer;
+  color: blue;
 }
 .user-content ul{
   display: flex;
+  width: 100%;
 }
-li{
+.user-content ul li{
+  margin: 10px;
   list-style: none;
 }
-
+.user-content ul li:hover{
+  border: 1px solid red;
+  background-color: rgb(249, 250, 250);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.post .footer-post{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width:100%;
+  bottom: 0;
+}
+.footer-post .lc-icon{
+  display: flex;
+  align-items: center;
+}
+.footer-post .lc-icon .like{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  width: auto;
+}
+.footer-post .lc-icon .like:hover,
+.footer-post .lc-icon .chat:hover,
+.footer-post .bookmark:hover
+{
+  cursor: pointer;
+}
+.footer-post .lc-icon .chat{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  width: auto;
+}
+.bookmark{
+  padding-right: 10px;
+}
+.post .footer-post img{
+  width: 24px;
+  height: 24px;
+  
+}
+@media screen and (max-width : 768px) {
+  .container-fluid{
+    width: 80%;
+  }
+}
 
