@@ -11,6 +11,7 @@
 
 <body>
   {{> Navbar }}
+  <br>
   {{message}}
   <div class="container-fluid">
     <form method="post" action="/post/new">
@@ -24,12 +25,27 @@
   <br>
   {{#each datas }}
   <div class="container-fluid">
-    <div class="data">
-      <h2>{{this.name}}</h2>
-      <h3>{{this.email}}</h3>
-      {{#if this.image }}
+    <div class="post">
+      <div class="header-post">
+        <img src="/userpost/download.jpg" class="user-logo">
+        <div>
+          <span id="user-name">Muthu Ram</span>
+          <h3 id="user-createdAt">jan 7</h3>
+        </div>
+      </div>
+      <div class="user-content">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla id facere earum itaque provident </p>
+        <ul>
+          <li>#html</li>
+          <li>#ccc</li>
+          <li>#py</li>
+          <li>#java</li>
+          <li>#ML</li>
+        </ul>
+      </div>
+      {{!-- {{#if this.image }}
       <img src="/userpost/{{this.image}}">
-      {{/if }}
+      {{/if }} --}}
     </div>
   </div>
   <br>

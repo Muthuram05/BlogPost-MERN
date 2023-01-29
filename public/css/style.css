@@ -27,8 +27,11 @@ body{
 .container-fluid{
   display: block;
   background: #fff;
-  width: 410px;
-  padding: 30px;
+  width: 50%;
+  min-height:200px ;
+  max-height: 200px;
+  overflow: hidden;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,3 +163,48 @@ nav .menu a:hover{
   color: green;
   text-align: center;
 }
+.container-fluid .post{
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
+}
+.container-fluid .post .header-post{
+  width: 100%;
+  height: 50px;
+  /* background-color: blue; */
+  display: flex;
+}
+.container-fluid .post .header-post .user-logo{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.container-fluid .post .header-post .user-logo{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+}
+#user-name{
+ font-size: 24px;
+  padding-left: 5px;
+  font-weight: 600;
+}
+#user-createdAt{
+ font-size: 12px;
+padding-left: 5px;
+}
+.user-content{
+  width: 80%;
+  margin: auto;
+  padding-top: 5px;
+  font-size: 18px;
+}
+.user-content ul{
+  display: flex;
+}
+li{
+  list-style: none;
+}
+
+
