@@ -3,15 +3,14 @@
 
 <head>
     {{> Header css="newpost"}}
+    <script src="/ckeditor_4.20.1_basic/ckeditor/ckeditor.js"></script>
 </head>
-
-
 <body>
     {{> Navbar}}
     <br>
     <div class="fluid">
         <h1 style="text-align: center;">Write Your Post here.</h1>
-        <form method="post" action="/post/new">
+        <form method="post" action="/post/new" enctype="multipart/form-data">
             <input type="text" name="name" value="{{user.name}}" style="display: none;">
             <input type="email" name="email" value="{{user.email}}" style="display: none;">
             <label for="title" required="required">Tittle:</label><br>
@@ -20,7 +19,7 @@
             <div class="tags">
                 
             </div>
-                    <input type="text" class="input" placeholder="Hit Enter to Add">
+                <input type="text" class="input" placeholder="Add Tags">
                 <span class="add" onclick="add()">ADD</span>
             <section>
                 <div>
@@ -30,17 +29,21 @@
                 <span class="remove-all">Remove All</span>
             </section>
             <br>
+            <input type="file" accept="image/*" >
             <textarea name="content" required="required"></textarea>
             <input type="submit" value="Post">
         </form>
+        <script>
+            CKEDITOR.replace( 'content' );
+        </script> 
     </div>
     <script>
         const input = document.querySelector(".input");
         const tag_box = document.querySelector(".tags");
         const tagcounter = document.querySelector('section .counter');
-        let tags = []
+        let tags = [];
         let maxTage = 10;
-
+        console.log(tags)
         countTag()
         function countTag(){
             tagcounter.innerHTML = maxTage - tags.length;

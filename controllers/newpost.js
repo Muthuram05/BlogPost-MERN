@@ -9,7 +9,10 @@ exports.new = async (req,res)=>{
     const email = req.body.email;
     const title = req.body.title;
     const content = req.body.content;
-    const cursor =await collection.insertOne({name:name,email:email,title:title,content:content});
+    const createdAt = new Date();
+    const image = null;
+    const user_image = null;
+    const cursor =await collection.insertOne({name,email,title,content,createdAt});
     res.status(200).redirect("/home/?status=1");
 }
     catch(e){
