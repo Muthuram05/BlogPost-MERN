@@ -34,6 +34,14 @@ router.get('/home',userContoller.isLoggedIn,async(req,res)=>{
         res.redirect("/login")
     }
 })
+router.get('/write',userContoller.isLoggedIn,async(req,res)=>{
+    if(req.user){
+        res.render("NewPost",{user:req.user});
+    }
+    else{
+        res.redirect("/login")
+    }
+})
 router.get('/logout',(req,res)=>{
         res.cookie("Ram","logout",{
         expires:new Date(Date.now()+2*1000),

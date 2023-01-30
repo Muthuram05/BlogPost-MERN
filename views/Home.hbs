@@ -1,27 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Node.js Login System With MySQL</title>
-  <link rel="stylesheet" href="/css/style.css" />
-</head>
+  {{> Header}}
 
 <body>
   {{> Navbar }}
   <br>
   {{message}}
-  <div class="container-fluid">
-    <form method="post" action="/post/new">
-      <input type="text" name="name" value="{{user.name}}" style="display: none;">
-      <input type="email" name="email" value="{{user.email}}" style="display: none;">
-      <input type="text" name="title">
-      <textarea name="content"></textarea>
-      <input type="submit" value="Post">
-    </form>
-  </div>
+
   <br>
   {{#each datas }}
   <div class="container-fluid">

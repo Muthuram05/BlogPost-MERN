@@ -1,0 +1,77 @@
+.fluid{
+    display: block;
+    background: #fff;
+    width: 80%;
+    min-height:500px ;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 5px;
+    margin: auto;
+}
+.fluid input{
+    /* width: 95%; */
+    /* height: 30px; */
+    padding: 5px;
+    outline: none;
+}
+.fluid input:focus{
+    border:1px solid blue;
+}
+.tags{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.tags .tag{
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    background-color: blue;
+    border-radius: 5px;
+    color: #fff;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.tags .tag img{
+    font-size: 19px;
+    margin-left: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+.tags .tag img:hover{
+    transform: scale(1.1);
+}
+.tags .input{
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: none;
+    width: 130px;
+    margin-top: 5px;
+    margin-top: 5px;
+}
+section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-top:2px solid #ddd ;
+    font-weight: 700;
+    color: #5a5a5a;
+}
+section .remove-all{
+    padding: 8px 12px;
+    background: blue;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+section .remove-all:hover{
+    background: green;
+}

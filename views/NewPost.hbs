@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> Header css="newpost"}}
+</head>
+
+
+<body>
+    {{> Navbar}}
+    <br>
+    <div class="fluid">
+        <h1 style="text-align: center;">Write Your Post here.</h1>
+        <form method="post" action="/post/new">
+            <input type="text" name="name" value="{{user.name}}" style="display: none;">
+            <input type="email" name="email" value="{{user.email}}" style="display: none;">
+            <label for="title" required="required">Tittle:</label><br>
+            <input type="text" name="title" required="required">
+            <br>
+            <div class="tags">
+                
+            </div>
+                    <input type="text" class="input" placeholder="Hit Enter to Add">
+                <span class="add" onclick="add()">ADD</span>
+            <section>
+                <div>
+                    <span class="counter">10</span>
+                    <span class="value">Tag Left</span>
+                </div>
+                <span class="remove-all">Remove All</span>
+            </section>
+            <br>
+            <textarea name="content" required="required"></textarea>
+            <input type="submit" value="Post">
+        </form>
+    </div>
+    <script>
+        const input = document.querySelector(".input");
+        const tag_box = document.querySelector(".tags");
+        const tagcounter = document.querySelector('section .counter');
+        let tags = []
+        let maxTage = 10;
+
+        countTag()
+        function countTag(){
+            tagcounter.innerHTML = maxTage - tags.length;
+        }
+        function removeTag(element, tag) {
+            let index = tags.indexOf(tag);
+            tags = [...tags.slice(0, index), ...tags.slice(index + 1)]
+            element.parentElement.remove();
+            countTag()
+        }
+        function createTag() {
+            tag_box.querySelectorAll(".tag").forEach(element => element.remove())
+            tags.slice().reverse().forEach(tag => {
+                let divTag = `<div class="tag">
+                    <span>${tag}</span>
+                    <img src="/image/x-lg.svg" onclick="removeTag(this,'${tag}')" alt="cross" >
+                </div>`
+                tag_box.insertAdjacentHTML('afterbegin', divTag)
+            });
+            countTag()
+        }
+
+        function add() {
+            var a = input.value;
+            if(tags.length < 10){
+                tags.push(a);
+            }
+            input.value = "";
+            createTag();
+        }
+
+        document.querySelector('.remove-all').addEventListener('click',function(){
+            tags.length = 0;
+            tag_box.querySelectorAll(".tag").forEach(element => element.remove())
+            createTag();
+        })
+    </script>
+</body>
