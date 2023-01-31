@@ -5,22 +5,21 @@
     {{> Header css="newpost"}}
     <script src="/ckeditor_4.20.1_basic/ckeditor/ckeditor.js"></script>
 </head>
+
 <body>
     {{> Navbar}}
     <br>
     <div class="fluid">
         <h1 style="text-align: center;">Write Your Post here.</h1>
-        <form method="post" action="/post/new" enctype="multipart/form-data">
+        <form method="post" action="/post/new">
             <input type="text" name="name" value="{{user.name}}" style="display: none;">
             <input type="email" name="email" value="{{user.email}}" style="display: none;">
             <label for="title" required="required">Tittle:</label><br>
             <input type="text" name="title" required="required">
             <br>
-            <div class="tags">
-                
-            </div>
-                <input type="text" class="input" placeholder="Add Tags">
-                <span class="add" onclick="add()">ADD</span>
+            <div class="tags"></div>
+            <input type="text" class="input" placeholder="Add Tags">
+            <span class="add" onclick="add()">ADD</span>
             <section>
                 <div>
                     <span class="counter">10</span>
@@ -29,30 +28,32 @@
                 <span class="remove-all">Remove All</span>
             </section>
             <br>
-            <input type="file" accept="image/*" >
+            <input type="text" id="dummy_tag" style="display: none;" name="tags">
+            <input type="file" accept="image/*" required="required">
             <textarea name="content" required="required"></textarea>
             <input type="submit" value="Post">
         </form>
         <script>
-            CKEDITOR.replace( 'content' );
-        </script> 
+            CKEDITOR.replace('content');
+        </script>
     </div>
     <script>
         const input = document.querySelector(".input");
         const tag_box = document.querySelector(".tags");
         const tagcounter = document.querySelector('section .counter');
+        const dummy_tag = document.querySelector("#dummy_tag");
         let tags = [];
         let maxTage = 10;
-        console.log(tags)
-        countTag()
-        function countTag(){
+        countTag();
+        function countTag() {
+            dummy_tag.value = tags;
             tagcounter.innerHTML = maxTage - tags.length;
         }
         function removeTag(element, tag) {
             let index = tags.indexOf(tag);
             tags = [...tags.slice(0, index), ...tags.slice(index + 1)]
             element.parentElement.remove();
-            countTag()
+            countTag();
         }
         function createTag() {
             tag_box.querySelectorAll(".tag").forEach(element => element.remove())
@@ -63,19 +64,18 @@
                 </div>`
                 tag_box.insertAdjacentHTML('afterbegin', divTag)
             });
-            countTag()
+            countTag();
+            
         }
-
         function add() {
             var a = input.value;
-            if(tags.length < 10){
-                tags.push(a);
+            if (tags.length < 10) {
+                    tags.push(a);
             }
             input.value = "";
             createTag();
         }
-
-        document.querySelector('.remove-all').addEventListener('click',function(){
+        document.querySelector('.remove-all').addEventListener('click', function () {
             tags.length = 0;
             tag_box.querySelectorAll(".tag").forEach(element => element.remove())
             createTag();

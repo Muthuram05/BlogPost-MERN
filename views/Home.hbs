@@ -15,12 +15,13 @@
       <div class="header-post">
         <img src="/userpost/download.jpg" class="user-logo">
         <div>
-          <span id="user-name">Muthu Ram</span>
-          <h3 id="user-createdAt">jan 7</h3>
+          <a href="/{{this.email}}">{{this.name}}</a>
+          <span id="user-name" >{{this.name}}</span>
+          <h3 id="user-createdAt">{{this.createdAt}}</h3>
         </div>
       </div>
       <div class="user-content">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla id facere earum itaque provident </p>
+        <p>{{this.title}}</p>
         <ul>
           <li style="width: auto;">#html</li>
           <li style="width: auto;">#ccc</li>

@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-{{> Header}}
-  <body>
-    {{> Navbar }}
+{{> Header css="profile"}}
 
-    <div class="container-fluid">
-      <h2>User Profile</h2>
-      <img src="/image/profile.png" />
-      <h3>Name : {{user.name}}</h3>
-      <h3>Email : {{user.email}}</h3>
-      {{#each datas}}
+<body>
+  {{> Navbar }}
+<br>
+  <div class="fluid">
+    <div>
+      <h2 style="text-align: center;">User Profile</h2>
+      <div style="display: flex;">
+        <img src="/userpost/download.jpg" id="user-profile" />
+        <div>
+          <h3>Name : {{user.name}}</h3>
+          <h3>Email : {{user.email}}</h3>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <br>
+  <h2 style="text-align: center;">Your Post's</h2>
+   {{#each datas}}
+    <div class="fluid">
+      
+     
       <h1>{{this.email}}</h1>
       <h1>{{this.name}}</h1>
       <h1>{{this.title}}</h1>
-      <h1>{{this.content}}</h1>
       <img src="userpost/{{this.image}}">
-      {{/each}}
+     
     </div>
-  </body>
+    <br>
+     {{/each}}
+
+</body>
+
 </html>
