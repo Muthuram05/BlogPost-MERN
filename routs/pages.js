@@ -49,4 +49,12 @@ router.get('/logout',(req,res)=>{
     });
     res.status(200).redirect("/");
 })
+router.get('/userprofile/:email',userContoller.isLoggedIn,async(req,res)=>{
+    let database =await dbo.getDataBase();
+        const collection = database.collection('datas');
+        const cursor = collection.find({email:req.params.email})
+        let datas =await cursor.toArray();
+        console.log(datas)
+        res.render("userProfile",{user:req.user,datas});
+})
 module.exports = router;
