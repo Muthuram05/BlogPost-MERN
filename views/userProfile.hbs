@@ -1,9 +1,21 @@
 <head>
-    {{> Header}}
+    {{> Header css='profile'}}
 </head>
+
 <body>
     {{> Navbar}}
-    {{#each datas}}
-        {{this.name}}
-    {{/each}}
+    <div class="fluid">
+        <div>
+
+        </div>
+        {{datas.name}}
+        {{user.email}}
+        <img src="/user-profile/{{user.user-profile}}">
+    </div>
+    <div>
+        {{#each datas}}
+        {{this.title}}
+        {{/each}}
+    </div>
+
 </body>
