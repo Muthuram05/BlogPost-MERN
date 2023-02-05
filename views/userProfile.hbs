@@ -6,15 +6,26 @@
     {{> Navbar}}
     <div class="fluid">
         <div>
-
+            <div style="display: flex;">
+                <img src="/user-profile/{{user.user-profile}}" id="user-profile">
+                <div>
+                    <h3>Name : {{user_name}}</h3>
+                    <h3>Email : {{user_email}}</h3>
+                </div>
+            </div>
         </div>
-        {{datas.name}}
-        {{user.email}}
-        <img src="/user-profile/{{user.user-profile}}">
+
+
     </div>
     <div>
+        <br>
+        <h2 style="text-align: center;">User's Post</h2>
         {{#each datas}}
-        {{this.title}}
+        <div class="fluid">
+            <h1>{{this.title}}</h1>
+            <p>{{{this.content}}}</p>
+        </div>
+        <br>
         {{/each}}
     </div>
 

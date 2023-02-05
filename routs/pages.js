@@ -54,7 +54,7 @@ router.get('/userprofile/:email',userContoller.isLoggedIn,async(req,res)=>{
         const collection = database.collection('datas');
         const cursor = collection.find({email:req.params.email})
         let datas =await cursor.toArray();
-        console.log(datas[0].name)
-        res.render("userProfile",{user:req.user,datas});
+        console.log()
+        res.render("userProfile",{user:req.user,datas,user_name:datas[0].name,user_email:datas[0].email});
 })
 module.exports = router;
